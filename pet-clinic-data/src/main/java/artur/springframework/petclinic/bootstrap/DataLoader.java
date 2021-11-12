@@ -6,8 +6,10 @@ import artur.springframework.petclinic.services.OwnerService;
 import artur.springframework.petclinic.services.VetServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
+@Component
 public class DataLoader implements CommandLineRunner {
   private final OwnerService ownerService;
   private final VetServices vetServices;
