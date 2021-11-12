@@ -1,12 +1,7 @@
 package artur.springframework.petclinic.services;
 
 import artur.springframework.petclinic.domain.Vet;
-import java.util.Set;
 
-public interface VetServices {
-  Vet findById(Long id);
+public interface VetServices extends CrudService<Vet, Long> {
 
-  Vet save(Vet vet);
-
-  Set<Vet> findAll();
 }
