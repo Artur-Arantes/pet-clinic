@@ -21,12 +21,10 @@ public class DataLoader implements CommandLineRunner {
   public void run(String... args) throws Exception {
     PetType dog =new PetType();
     dog.setName("toto");
-    dog.setId(1L);
     PetType dogSaved= petTypeService.save(dog);
 
     PetType cat = new PetType();
     cat.setName("bolota");
-    cat.setId(2L);
     PetType catSaved= petTypeService.save(cat);
 
     Owner owner1 = new Owner();
