@@ -1,11 +1,13 @@
 package artur.springframework.petclinic.bootstrap;
 
 import artur.springframework.petclinic.domain.Owner;
+import artur.springframework.petclinic.domain.Pet;
 import artur.springframework.petclinic.domain.PetType;
 import artur.springframework.petclinic.domain.Vet;
 import artur.springframework.petclinic.services.OwnerService;
 import artur.springframework.petclinic.services.PetTypeService;
 import artur.springframework.petclinic.services.VetServices;
+import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -30,14 +32,33 @@ public class DataLoader implements CommandLineRunner {
     Owner owner1 = new Owner();
     owner1.setId(1L);
     owner1.setFirstName("mi");
+    owner1.setAddress("tibirica");
+    owner1.setCity("ribeirao");
+    owner1.setTelephone("15151");
     owner1.setLastName("campagnollo");
 
+    Pet misPet= new Pet();
+    misPet.setPetType(dogSaved);
+    misPet.setOwner(owner1);
+    misPet.setBirthDate(LocalDate.now());
+    misPet.setName("toquio");
+    owner1.getPets().add(misPet);
     ownerService.save(owner1);
 
     Owner owner2 = new Owner();
     owner2.setId(2L);
+    owner2.setAddress("rua amador");
+    owner2.setCity("barueri");
+    owner2.setTelephone("5543");
     owner2.setFirstName("toquio");
     owner2.setLastName("japan");
+
+    Pet toquiosPet= new Pet();
+    toquiosPet.setPetType(cat);
+    toquiosPet.setOwner(owner2);
+    toquiosPet.setBirthDate(LocalDate.now());
+    toquiosPet.setName("toquios son");
+    owner2.getPets().add(toquiosPet);
 
     ownerService.save(owner2);
 
