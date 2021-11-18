@@ -28,11 +28,6 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
   }
 
   @Override
-  public Pet findByLastName(String lastname) {
-    return null;
-  }
-
-  @Override
   public Pet findById(Long id) {
     return super.findById(id);
   }

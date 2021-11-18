@@ -43,8 +43,4 @@ public class VetSdJpaService implements VetServices {
     vetRepository.deleteById(aLong);
   }
 
-  @Override
-  public Vet findByLastName(String lastname) {
-    return null;
-  }
 }

@@ -15,10 +15,7 @@ public class SpecialityMapService extends AbstractMapService<Speciality, Long>
     return super.findAll();
   }
 
-  @Override
-  public Speciality findByLastName(String lastname) {
-    return null;
-  }
+
 
   @Override
   public void deleteById(Long id) {

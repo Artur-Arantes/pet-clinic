@@ -19,10 +19,6 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
     super.deleteById(id);
   }
 
-  @Override
-  public PetType findByLastName(String lastname) {
-    return findByLastName(lastname);
-  }
 
   @Override
   public void delete(PetType object) {
@@ -31,7 +27,6 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
 
   @Override
   public PetType save(PetType object) {
-
     return super.save(object);
   }
 
