@@ -5,10 +5,12 @@ import artur.springframework.petclinic.domain.Pet;
 import artur.springframework.petclinic.domain.PetType;
 import artur.springframework.petclinic.domain.Speciality;
 import artur.springframework.petclinic.domain.Vet;
+import artur.springframework.petclinic.domain.Visit;
 import artur.springframework.petclinic.services.OwnerService;
 import artur.springframework.petclinic.services.PetTypeService;
 import artur.springframework.petclinic.services.SpecialitiesService;
 import artur.springframework.petclinic.services.VetServices;
+import artur.springframework.petclinic.services.VisitServices;
 import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -21,6 +23,7 @@ public class DataLoader implements CommandLineRunner {
   private final VetServices vetServices;
   private final PetTypeService petTypeService;
   private final SpecialitiesService specialitiesService;
+  private final VisitServices visitServices;
 
   @Override
   public void run(String... args) throws Exception {
@@ -76,13 +79,22 @@ public class DataLoader implements CommandLineRunner {
     owner2.setLastName("japan");
 
     Pet toquiosPet = new Pet();
-    toquiosPet.setPetType(cat);
+    toquiosPet.setId(1L);
+    toquiosPet.setPetType(catSaved);
     toquiosPet.setOwner(owner2);
     toquiosPet.setBirthDate(LocalDate.now());
     toquiosPet.setName("toquios son");
     owner2.getPets().add(toquiosPet);
 
     ownerService.save(owner2);
+
+    Visit catVisit= new Visit();
+    catVisit.setId(1L);
+    catVisit.setPet(toquiosPet);
+    catVisit.setDate(LocalDate.now());
+    catVisit.setDescription("sneezy kitty");
+
+    visitServices.save(catVisit);
 
     System.out.println("Loaded Owners...");
 

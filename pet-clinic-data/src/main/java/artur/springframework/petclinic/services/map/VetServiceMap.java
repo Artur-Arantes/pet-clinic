@@ -6,10 +6,12 @@ import artur.springframework.petclinic.services.SpecialitiesService;
 import artur.springframework.petclinic.services.VetServices;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetServices {
 
   private final SpecialitiesService specialitiesService;

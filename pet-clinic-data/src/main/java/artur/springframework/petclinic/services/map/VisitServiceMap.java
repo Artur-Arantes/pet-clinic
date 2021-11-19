@@ -3,9 +3,11 @@ package artur.springframework.petclinic.services.map;
 import artur.springframework.petclinic.domain.Visit;
 import artur.springframework.petclinic.services.VisitServices;
 import java.util.Set;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
+@Profile({"default", "map"})
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitServices {
 
   @Override

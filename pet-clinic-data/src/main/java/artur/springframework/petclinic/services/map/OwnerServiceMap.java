@@ -7,10 +7,12 @@ import artur.springframework.petclinic.services.PetServices;
 import artur.springframework.petclinic.services.PetTypeService;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
   private final PetTypeService petTypeService;
   private final PetServices petServices;

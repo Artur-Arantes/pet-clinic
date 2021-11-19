@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-@Profile("sprindatajpa")
+@Profile("springdatajpa")
 public class PetSdJpaService implements PetServices {
 
   private final PetRepository petRepository;
