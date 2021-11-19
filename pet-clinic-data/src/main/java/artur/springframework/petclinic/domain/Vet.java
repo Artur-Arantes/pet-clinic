@@ -8,13 +8,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "vets")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Vet extends Person {
 
   @ManyToMany(fetch = FetchType.EAGER)

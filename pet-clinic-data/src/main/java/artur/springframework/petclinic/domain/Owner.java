@@ -7,11 +7,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "owners")
 public class Owner extends Person {
@@ -21,7 +27,7 @@ public class Owner extends Person {
   @Column(name = "city")
   private String city;
 
-  @Column(name="telephone")
+  @Column(name = "telephone")
   private String telephone;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
