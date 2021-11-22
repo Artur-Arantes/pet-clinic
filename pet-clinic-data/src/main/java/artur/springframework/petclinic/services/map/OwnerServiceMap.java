@@ -6,12 +6,12 @@ import artur.springframework.petclinic.services.OwnerService;
 import artur.springframework.petclinic.services.PetServices;
 import artur.springframework.petclinic.services.PetTypeService;
 import java.util.Set;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
   private final PetTypeService petTypeService;
@@ -35,7 +35,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
   @Override
   public Owner save(Owner object) {
     if (object != null) {
-      if (object.getPets() == null) {
+      if (object.getPets() != null) {
         object.getPets().forEach(pet -> {
           if (pet.getPetType() != null) {
             if (pet.getPetType() == null) {
@@ -64,6 +64,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
   @Override
   public Owner findByLastName(String lastname) {
-    return null;
+    return this.findAll()
+        .stream()
+        .filter(owner -> owner.getLastName().equalsIgnoreCase(lastname))
+        .findFirst()
+        .orElse(null);
   }
 }
