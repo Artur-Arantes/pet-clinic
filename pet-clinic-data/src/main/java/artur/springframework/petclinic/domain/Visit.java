@@ -7,10 +7,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -18,7 +18,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "visits")
-@SuperBuilder
+@Builder
 public class Visit extends BaseEntity {
 
   @Column(name = "date")

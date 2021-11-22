@@ -4,7 +4,7 @@ import artur.springframework.petclinic.domain.Speciality;
 import artur.springframework.petclinic.domain.Vet;
 import artur.springframework.petclinic.services.SpecialitiesService;
 import artur.springframework.petclinic.services.VetServices;
-import java.util.Set;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
   private final SpecialitiesService specialitiesService;
 
   @Override
-  public Set<Vet> findAll() {
+  public List<Vet> findAll() {
     return super.findAll();
   }
 

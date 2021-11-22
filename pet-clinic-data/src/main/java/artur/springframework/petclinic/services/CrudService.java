@@ -1,9 +1,10 @@
 package artur.springframework.petclinic.services;
 
-import java.util.Set;
+import artur.springframework.petclinic.domain.Owner;
+import java.util.List;
 
 public interface CrudService<T, ID> {
-  Set<T> findAll();
+  List<T> findAll();
 
   T findById(ID id);
 

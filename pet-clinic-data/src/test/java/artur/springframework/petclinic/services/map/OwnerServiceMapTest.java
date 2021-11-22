@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import artur.springframework.petclinic.domain.Owner;
-import java.util.Set;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +25,7 @@ class OwnerServiceMapTest {
 
   @Test
   void findAll() {
-    Set<Owner> ownerSet = ownerServiceMap.findAll();
+    List<Owner> ownerSet = ownerServiceMap.findAll();
     assertEquals(1, ownerSet.size());
   }
 
@@ -69,7 +69,7 @@ class OwnerServiceMapTest {
 
   @Test
   void findByLastName() {
-    Owner smith= ownerServiceMap.findByLastName(lastName);
+    Owner smith = ownerServiceMap.findByLastName(lastName);
     assertNotNull(smith);
     assertEquals(ownerId, smith.getId()
     );
@@ -77,7 +77,7 @@ class OwnerServiceMapTest {
 
   @Test
   void findByLastNameNotFound() {
-    Owner smith= ownerServiceMap.findByLastName("fool");
+    Owner smith = ownerServiceMap.findByLastName("fool");
     assertNull(smith);
   }
 }

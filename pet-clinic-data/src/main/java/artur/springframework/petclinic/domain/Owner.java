@@ -1,6 +1,8 @@
 package artur.springframework.petclinic.domain;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,10 +10,11 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -19,8 +22,20 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @Entity
 @Table(name = "owners")
-@SuperBuilder
+@EqualsAndHashCode(of = "id")
 public class Owner extends Person {
+
+
+  @Builder
+  public Owner(Long id, String firstName, String lastName, String address, String city,
+               String telephone, List<Pet> pets) {
+    super(id,firstName, lastName);
+    this.address = address;
+    this.city = city;
+    this.telephone = telephone;
+    this.pets = pets;
+  }
+
   @Column(name = "address")
   private String address;
 
@@ -31,5 +46,5 @@ public class Owner extends Person {
   private String telephone;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-  private Set<Pet> pets = new HashSet<>();
+  private List<Pet> pets = new ArrayList<>();
 }

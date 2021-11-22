@@ -1,9 +1,12 @@
 package artur.springframework.petclinic.services.springdatajpa;
 
+import artur.springframework.petclinic.domain.Owner;
 import artur.springframework.petclinic.domain.Vet;
 import artur.springframework.petclinic.repositories.VetRepository;
 import artur.springframework.petclinic.services.VetServices;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
@@ -17,8 +20,8 @@ public class VetSdJpaService implements VetServices {
   private final VetRepository vetRepository;
 
   @Override
-  public Set<Vet> findAll() {
-    Set<Vet> vets = new HashSet<>();
+  public List<Vet> findAll() {
+    List<Vet> vets = new ArrayList<>();
     vetRepository.findAll().forEach(vets::add);
     return vets;
   }

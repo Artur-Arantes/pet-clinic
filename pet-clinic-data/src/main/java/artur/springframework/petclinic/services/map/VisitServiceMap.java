@@ -2,7 +2,7 @@ package artur.springframework.petclinic.services.map;
 
 import artur.springframework.petclinic.domain.Visit;
 import artur.springframework.petclinic.services.VisitServices;
-import java.util.Set;
+import java.util.List;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitServices {
 
   @Override
-  public Set<Visit> findAll() {
+  public List<Visit> findAll() {
     return super.findAll();
   }
 

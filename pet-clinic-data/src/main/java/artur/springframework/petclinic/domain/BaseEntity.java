@@ -6,12 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -20,7 +20,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-@SuperBuilder
 public class BaseEntity implements Serializable {
 
   @Id

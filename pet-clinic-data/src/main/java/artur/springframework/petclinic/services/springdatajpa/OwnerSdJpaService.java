@@ -5,8 +5,8 @@ import artur.springframework.petclinic.repositories.OwnerRepository;
 import artur.springframework.petclinic.repositories.PetRepository;
 import artur.springframework.petclinic.repositories.PetTypeRepository;
 import artur.springframework.petclinic.services.OwnerService;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -21,9 +21,9 @@ public class OwnerSdJpaService implements OwnerService {
   private final PetTypeRepository petTypeRepository;
 
   @Override
-  public Set<Owner> findAll() {
-    Set<Owner> owners = new HashSet<>();
-    ownerRepository.findAll().forEach(owners::add);
+  public List<Owner> findAll() {
+    List<Owner> owners = new ArrayList<>();
+    ownerRepository.findAll().forEach(ow -> owners.add(ow));
     return owners;
   }
 

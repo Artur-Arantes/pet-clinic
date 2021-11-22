@@ -1,9 +1,12 @@
 package artur.springframework.petclinic.services.springdatajpa;
 
+import artur.springframework.petclinic.domain.Owner;
 import artur.springframework.petclinic.domain.Speciality;
 import artur.springframework.petclinic.repositories.SpecialityRepository;
 import artur.springframework.petclinic.services.SpecialitiesService;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
@@ -17,8 +20,8 @@ public class SpecialitySdJpaService implements SpecialitiesService {
   private final SpecialityRepository specialityRepository;
 
   @Override
-  public Set<Speciality> findAll() {
-    Set<Speciality> specialities = new HashSet<>();
+  public List<Speciality> findAll() {
+    List<Speciality> specialities = new ArrayList<>();
     specialityRepository.findAll().forEach(specialities::add);
     return specialities;
   }

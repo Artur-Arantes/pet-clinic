@@ -1,18 +1,20 @@
 package artur.springframework.petclinic.services.map;
 
 import artur.springframework.petclinic.domain.BaseEntity;
+import artur.springframework.petclinic.domain.Owner;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
-import java.util.Set;
 
 public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
   protected Map<Long, T> map = new HashMap<>();
 
-  Set<T> findAll() {
-    return new HashSet<>(map.values());
+  List<T> findAll() {
+    return new ArrayList<>();
   }
 
   T findById(ID id) {
