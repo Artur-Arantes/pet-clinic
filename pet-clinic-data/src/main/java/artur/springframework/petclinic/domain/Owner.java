@@ -1,9 +1,8 @@
 package artur.springframework.petclinic.domain;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,7 +28,7 @@ public class Owner extends Person {
   @Builder
   public Owner(Long id, String firstName, String lastName, String address, String city,
                String telephone, List<Pet> pets) {
-    super(id,firstName, lastName);
+    super(id, firstName, lastName);
     this.address = address;
     this.city = city;
     this.telephone = telephone;
@@ -46,5 +45,12 @@ public class Owner extends Person {
   private String telephone;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-  private List<Pet> pets = new ArrayList<>();
+  private List<Pet> pets;
+
+  public List<Pet> getPets(){
+    if (Objects.isNull(this.pets)){
+      this.pets=new ArrayList<>();
+    }
+    return this.pets;
+  }
 }
