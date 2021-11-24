@@ -52,4 +52,9 @@ public class OwnerSdJpaService implements OwnerService {
   public Owner findByLastName(String lastName) {
     return ownerRepository.findByLastName(lastName);
   }
+
+  @Override
+  public List<Owner> findAllByLastNameLike(String lastname) {
+    return ownerRepository.findAllByLastNameLike(lastname);
+  }
 }
