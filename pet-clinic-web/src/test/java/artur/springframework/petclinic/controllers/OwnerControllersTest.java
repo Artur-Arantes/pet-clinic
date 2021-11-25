@@ -66,7 +66,7 @@ class OwnerControllersTest {
     mockMvc.perform(MockMvcRequestBuilders.get("/owners"))
         .andExpect(status().isOk())
         .andExpect(view().name("owners/ownersList"))
-        .andExpect(model().attribute("selctions", hasSize(2)));
+        .andExpect(model().attribute("selections", hasSize(2)));
   }
 
   @Test

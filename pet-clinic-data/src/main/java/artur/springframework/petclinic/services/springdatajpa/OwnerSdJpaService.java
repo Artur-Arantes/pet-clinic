@@ -23,7 +23,7 @@ public class OwnerSdJpaService implements OwnerService {
   @Override
   public List<Owner> findAll() {
     List<Owner> owners = new ArrayList<>();
-    ownerRepository.findAll().forEach(ow -> owners.add(ow));
+    ownerRepository.findAll().forEach(owners::add);
     return owners;
   }
 
@@ -54,7 +54,7 @@ public class OwnerSdJpaService implements OwnerService {
   }
 
   @Override
-  public List<Owner> findAllByLastNameLike(String lastname) {
-    return ownerRepository.findAllByLastNameLike(lastname);
+  public List<Owner> findAllByLastNameLike(String lastName) {
+    return ownerRepository.findAllByLastNameLike(lastName);
   }
 }

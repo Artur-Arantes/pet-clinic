@@ -5,12 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import artur.springframework.petclinic.domain.Owner;
-import artur.springframework.petclinic.domain.Pet;
-import artur.springframework.petclinic.domain.PetType;
 import artur.springframework.petclinic.services.PetServices;
 import artur.springframework.petclinic.services.PetTypeService;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -35,21 +31,6 @@ class OwnerServiceMapTest {
 
     ownerServiceMap.save(Owner.builder().id(ownerId).lastName(lastName).build());
   }
-
-//  @Test
-//  void findAll() {
-////    PetType petType= new PetType();
-//////    Pet pet = new Pet();
-//////    pet.setPetType(petType);
-//////    List<Pet> petList = new ArrayList<>();
-//////    petList.add(pet);
-//////    Owner savedOwner = ownerServiceMap.save(Owner.builder().id(3L).pets(petList).build());
-//////    ownerServiceMap.save(savedOwner);
-//////    List<Owner> ownerSet = new ArrayList<>();
-//////    ownerServiceMap.findAll().forEach(ownerSet::add);
-//////
-//////    assertEquals(1, ownerSet.size());
-//////  }
 
   @Test
   void deleteById() {
