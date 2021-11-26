@@ -127,8 +127,6 @@ class OwnerControllersTest {
         .andExpect(status().is3xxRedirection())
         .andExpect(view().name("redirect:/owners/1"))
         .andExpect(model().attributeExists("owner"));
-
-
   }
 
 }

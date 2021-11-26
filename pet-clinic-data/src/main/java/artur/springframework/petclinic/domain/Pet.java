@@ -1,7 +1,8 @@
 package artur.springframework.petclinic.domain;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "pets")
+@Table(name = "pet")
 public class Pet extends BaseEntity {
   @Column(name = "name")
   private String name;
@@ -38,6 +39,6 @@ public class Pet extends BaseEntity {
   private LocalDate birthDate;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
-  private Set<Visit> visits;
+  private List<Visit> visits = new ArrayList<>();
 
 }

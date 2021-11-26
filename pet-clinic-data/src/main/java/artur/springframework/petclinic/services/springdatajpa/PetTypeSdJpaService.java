@@ -1,13 +1,10 @@
 package artur.springframework.petclinic.services.springdatajpa;
 
-import artur.springframework.petclinic.domain.Owner;
 import artur.springframework.petclinic.domain.PetType;
 import artur.springframework.petclinic.repositories.PetTypeRepository;
 import artur.springframework.petclinic.services.PetTypeService;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
