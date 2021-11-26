@@ -1,7 +1,7 @@
 package artur.springframework.petclinic.domain;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -26,5 +26,5 @@ public class Vet extends Person {
   @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(name = "vet_specialities", joinColumns = @JoinColumn(name = "vet_id"),
       inverseJoinColumns = @JoinColumn(name = "speciality_id"))
-  private Set<Speciality> speciality = new HashSet<>();
+  private List<Speciality> specialities = new ArrayList<>();
 }

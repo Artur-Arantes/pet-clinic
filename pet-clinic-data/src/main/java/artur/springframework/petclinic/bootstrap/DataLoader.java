@@ -27,10 +27,10 @@ public class DataLoader implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    int count= petTypeService.findAll().size();
-   if(count==0){
-     loadData();
-   }
+    int count = petTypeService.findAll().size();
+    if (count == 0) {
+      loadData();
+    }
   }
 
   private void loadData() {
@@ -44,15 +44,15 @@ public class DataLoader implements CommandLineRunner {
 
     Speciality radiology = new Speciality();
     radiology.setDescription("Radiology");
-    Speciality savedRadiology=specialitiesService.save(radiology);
+    Speciality savedRadiology = specialitiesService.save(radiology);
 
     Speciality surgery = new Speciality();
     surgery.setDescription("Surgery");
-    Speciality savedSurgery=specialitiesService.save(surgery);
+    Speciality savedSurgery = specialitiesService.save(surgery);
 
     Speciality dentistry = new Speciality();
     dentistry.setDescription("Dentistry");
-    Speciality savedDentistry=specialitiesService.save(dentistry);
+    Speciality savedDentistry = specialitiesService.save(dentistry);
 
     Owner owner1 = new Owner();
     owner1.setId(1L);
@@ -88,7 +88,7 @@ public class DataLoader implements CommandLineRunner {
 
     ownerService.save(owner2);
 
-    Visit catVisit= new Visit();
+    Visit catVisit = new Visit();
     catVisit.setId(1L);
     catVisit.setPet(toquiosPet);
     catVisit.setDate(LocalDate.now());
@@ -102,7 +102,7 @@ public class DataLoader implements CommandLineRunner {
     vet1.setFirstName("joaquim");
     vet1.setId(1L);
     vet1.setLastName("Pereira");
-    vet1.getSpeciality().add(savedRadiology);
+    vet1.getSpecialities().add(savedRadiology);
 
     vetServices.save(vet1);
 
@@ -110,7 +110,7 @@ public class DataLoader implements CommandLineRunner {
     vet2.setId(2L);
     vet2.setLastName("Bueno");
     vet2.setFirstName("Galvao");
-    vet2.getSpeciality().add(surgery);
+    vet2.getSpecialities().add(surgery);
 
     vetServices.save(vet2);
 
